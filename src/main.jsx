@@ -230,12 +230,39 @@ function App() {
 }
 
 function EditorCard({ item, onChange }) {
-  return <div className="editor-card">
+  const [editing, setEditing] = useState(false);
+  const paragraphs = item.description.split(/\n\s*\n/).filter(Boolean);
+
+  if (!editing) {
+    return <div className="editor-card preview-card">
+      <div className="preview-toolbar">
+        <span>{item.description.trim().split(/\s+/).length} words</span>
+        <button onClick={() => setEditing(true)}>Edit content</button>
+      </div>
+      <h3>{item.name}</h3>
+      <div className="preview-description">
+        {paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+      </div>
+      <section className="preview-section">
+        <h4>Who it’s for</h4>
+        <div className="preview-chips">
+          {item.whoItsFor.map((tag, index) => <span key={index}>{tag.label}</span>)}
+        </div>
+      </section>
+      <section className="preview-section sights-section">
+        <h4>Top sights &amp; experiences</h4>
+        <ul>{item.topSights.map((sight, index) => <li key={index}>{sight.label}</li>)}</ul>
+      </section>
+    </div>;
+  }
+
+  return <div className="editor-card edit-card">
+    <div className="preview-toolbar"><span>Editing</span><button onClick={() => setEditing(false)}>Done editing</button></div>
     <div className="editor-title"><input value={item.name} onChange={(e) => onChange({ name: e.target.value })} /><span>{item.description.trim().split(/\s+/).length} words</span></div>
     <textarea value={item.description} onChange={(e) => onChange({ description: e.target.value })} />
     <div className="editor-columns">
       <div><label>Who it’s for</label><div className="chips">{item.whoItsFor.map((tag, index) => <input key={index} value={tag.label} onChange={(e) => onChange({ whoItsFor: item.whoItsFor.map((v, i) => i === index ? { label: e.target.value } : v) })} />)}</div></div>
-      <div><label>Top sights & experiences</label><ol>{item.topSights.map((sight, index) => <li key={index}><input value={sight.label} onChange={(e) => onChange({ topSights: item.topSights.map((v, i) => i === index ? { label: e.target.value } : v) })} /></li>)}</ol></div>
+      <div><label>Top sights &amp; experiences</label><ol>{item.topSights.map((sight, index) => <li key={index}><input value={sight.label} onChange={(e) => onChange({ topSights: item.topSights.map((v, i) => i === index ? { label: e.target.value } : v) })} /></li>)}</ol></div>
     </div>
   </div>;
 }

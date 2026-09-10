@@ -158,3 +158,23 @@ input:focus, textarea:focus { border-color: #765aff; box-shadow: 0 0 0 3px rgba(
 footer { border-color: #dfe1e9; color: #8a90a2; }
 .toast { background: #131a38; box-shadow: 0 12px 35px rgba(21,19,61,.28); }
 @media (max-width: 760px) { .hero { margin-top: 24px; padding: 50px 26px 54px; border-radius: 24px; }.hero h1 { font-size: 42px; letter-spacing: -2.3px; }.hero > p { font-size: 14px; }.eyebrow { font-size: 9px; padding: 8px 11px; } }
+
+/* Generated neighbourhood preview */
+.preview-card { background: #f5f2ee; border: 0; border-radius: 18px; padding: clamp(26px,4vw,48px); color: #1c1c20; }
+.preview-toolbar { min-height: 28px; display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-bottom: 18px; }
+.preview-toolbar span { color: #777b89; font-size: 10px; text-transform: uppercase; letter-spacing: .8px; }
+.preview-toolbar button { color: #5237e4; background: #fff; border: 1px solid #d7d2ea; border-radius: 8px; padding: 7px 11px; font-size: 11px; font-weight: 700; }
+.preview-toolbar button:hover { border-color: #7458fb; background: #f8f6ff; }
+.preview-card > h3 { margin: 0 0 24px; color: #18181b; font-size: clamp(27px,3vw,38px); line-height: 1.15; letter-spacing: -1.4px; font-weight: 800; }
+.preview-description { max-width: 850px; }
+.preview-description p { margin: 0 0 16px; color: #242429; font-size: 16px; line-height: 1.62; letter-spacing: -.18px; }
+.preview-section { margin-top: 52px; }
+.preview-section h4 { margin: 0 0 20px; color: #1d1d21; font-size: 23px; line-height: 1.25; letter-spacing: -.65px; }
+.preview-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.preview-chips span { display: inline-flex; align-items: center; min-height: 39px; padding: 8px 17px; color: #232329; background: transparent; border: 1px solid #c9c9cd; border-radius: 999px; font-size: 14px; }
+.sights-section { margin-top: 38px; }
+.sights-section ul { margin: 0; padding-left: 23px; display: grid; gap: 10px; }
+.sights-section li { padding-left: 3px; color: #242429; font-size: 15px; line-height: 1.45; }
+.edit-card { background: #fff; border: 1px solid #e1e2eb; border-radius: 14px; padding: 22px; }
+.edit-card .preview-toolbar { margin-bottom: 8px; }
+@media (max-width: 760px) { .neighbourhood-grid { padding: 0 12px 14px; }.preview-card { padding: 24px 20px 30px; border-radius: 14px; }.preview-card > h3 { font-size: 29px; }.preview-description p { font-size: 14px; }.preview-section { margin-top: 38px; }.preview-section h4 { font-size: 20px; }.preview-chips span { min-height: 36px; padding: 7px 13px; font-size: 12px; } }
