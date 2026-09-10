@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import handler from "../api/generate.js";
+import { AUDIENCE_TAXONOMY } from "../api/audience-taxonomy.js";
 
 function mockResponse() {
   return {
@@ -25,4 +26,13 @@ test("reports missing server API configuration", async () => {
   assert.equal(response.code, 500);
   assert.match(response.payload.error, /OPENAI_API_KEY/);
   if (previous) process.env.OPENAI_API_KEY = previous;
+});
+
+test("expanded audience taxonomy contains unique controlled labels", () => {
+  const labels = Object.values(AUDIENCE_TAXONOMY).flat();
+  assert.ok(labels.length >= 100);
+  assert.equal(new Set(labels).size, labels.length);
+  assert.ok(labels.includes("Canal-side wanderers"));
+  assert.ok(labels.includes("Families with teenagers"));
+  assert.ok(labels.includes("Adaptive reuse fans"));
 });

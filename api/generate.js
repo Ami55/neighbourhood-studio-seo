@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 import promptConfig from "./prompt-config.json" with { type: "json" };
+import { audienceTaxonomyPrompt } from "./audience-taxonomy.js";
 
 const PROMPT_ORDER = [
   "ROLE_&_OBJECTIVE",
@@ -85,7 +86,7 @@ const Result = z.object({ neighbourhoods: z.array(Neighbourhood).min(1).max(25) 
 
 function buildPrompt(city, country, neighbourhoods) {
   const sections = PROMPT_ORDER.map((key) => promptConfig[key]).filter(Boolean).join("\n\n");
-  return `${sections}\n\n${SEO_ENHANCEMENT}\n\nROW DATA\n\nCity for this row: ${city}\nCountry for this row: ${country}\nNeighbourhoods for this row: ${neighbourhoods.join(", ")}\n\nCritical:\nReturn exactly one object for each supplied neighbourhood, in the same order. All neighbourhoods belong to ${city}, ${country}. Use only ${city} when a city name is needed. For generic names such as Downtown, Old Town, Old City, City Centre, Waterfront, Chinatown, Financial District, Market District, Arts District, CBD, or Historic Centre, include the exact city name in the output name. Conduct the editorial and final-quality checks silently before responding. The API response schema is authoritative: return one object with a “neighbourhoods” array, even if an earlier handbook section shows the array without its wrapper.`;
+  return `${sections}\n\n${audienceTaxonomyPrompt}\n\n${SEO_ENHANCEMENT}\n\nROW DATA\n\nCity for this row: ${city}\nCountry for this row: ${country}\nNeighbourhoods for this row: ${neighbourhoods.join(", ")}\n\nCritical:\nReturn exactly one object for each supplied neighbourhood, in the same order. All neighbourhoods belong to ${city}, ${country}. Use only ${city} when a city name is needed. For generic names such as Downtown, Old Town, Old City, City Centre, Waterfront, Chinatown, Financial District, Market District, Arts District, CBD, or Historic Centre, include the exact city name in the output name. Conduct the editorial and final-quality checks silently before responding. The API response schema is authoritative: return one object with a “neighbourhoods” array, even if an earlier handbook section shows the array without its wrapper.`;
 }
 
 function cleanText(value, max = 140) {
