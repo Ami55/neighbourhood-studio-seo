@@ -87,12 +87,16 @@ ${Object.entries(AUDIENCE_TAXONOMY)
 
 SELECTION METHOD
 
-Choose exactly three labels for each neighbourhood:
+Choose between three and five labels for each neighbourhood. Use three labels when they capture the neighbourhood accurately. Add a fourth or fifth only when each extra label represents a distinct, strongly supported reason to choose the neighbourhood.
+
+The first three selections should cover:
 1. Primary motivation: the strongest reason someone intentionally chooses this neighbourhood.
 2. Secondary experience: another experience that materially defines the visit.
 3. Traveller type or visit style: the group, pace, or itinerary role most naturally suited to it.
 
-Normally choose the three labels from three different categories. Never select three near-synonyms or three labels expressing the same motivation.
+Optional fourth and fifth selections may capture an additional experience, specialist interest, or clearly relevant traveller type. Never add labels simply to reach five.
+
+Normally choose labels from different categories. Never select near-synonyms or several labels expressing the same motivation.
 Use a narrower label when the evidence supports it. For example, prefer Coffee lovers to Foodies for a café district, Market browsers to Shoppers for a market quarter, or Canal-side wanderers to Outdoor enthusiasts for a canal district.
 Do not use an audience label merely because that audience could visit. The neighbourhood must offer a defining, relevant reason for that audience to choose it.
 Use family, age, cruise, mobility, crowd, nightlife, or specialist-interest labels only when the neighbourhood description contains concrete support for the selection.

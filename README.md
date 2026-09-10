@@ -22,4 +22,4 @@ The API key is read only by `api/generate.js` and is never sent to the browser.
 
 The original 23-part `Prompt_Config` handbook is preserved. A final SEO/GEO layer adds search-intent alignment, neighbourhood and city entity disambiguation, named-entity relationships, passage-level readability, information-gain checks, factual restraint, and safeguards against repetitive scaled content. The structured API schema remains authoritative over the legacy array-only output example.
 
-The server also includes an expanded, controlled `Who it's for` taxonomy in `api/audience-taxonomy.js`. It selects exactly three labels per neighbourhood: a primary motivation, a secondary experience, and a traveller type or visit style.
+The server also includes an expanded, controlled `Who it's for` taxonomy in `api/audience-taxonomy.js`. It selects three to five labels per neighbourhood. The first three cover a primary motivation, a secondary experience, and a traveller type or visit style. Fourth and fifth labels are included only when they add distinct, well-supported motivations.

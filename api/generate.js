@@ -80,13 +80,13 @@ const Neighbourhood = z.object({
   name: z.string().min(1),
   slug: z.literal(""),
   topSights: z.array(Label).length(4),
-  whoItsFor: z.array(Label).length(3),
+  whoItsFor: z.array(Label).min(3).max(5),
 });
 const Result = z.object({ neighbourhoods: z.array(Neighbourhood).min(1).max(25) });
 
 function buildPrompt(city, country, neighbourhoods) {
   const sections = PROMPT_ORDER.map((key) => promptConfig[key]).filter(Boolean).join("\n\n");
-  return `${sections}\n\n${audienceTaxonomyPrompt}\n\n${SEO_ENHANCEMENT}\n\nROW DATA\n\nCity for this row: ${city}\nCountry for this row: ${country}\nNeighbourhoods for this row: ${neighbourhoods.join(", ")}\n\nCritical:\nReturn exactly one object for each supplied neighbourhood, in the same order. All neighbourhoods belong to ${city}, ${country}. Use only ${city} when a city name is needed. For generic names such as Downtown, Old Town, Old City, City Centre, Waterfront, Chinatown, Financial District, Market District, Arts District, CBD, or Historic Centre, include the exact city name in the output name. Conduct the editorial and final-quality checks silently before responding. The API response schema is authoritative: return one object with a “neighbourhoods” array, even if an earlier handbook section shows the array without its wrapper.`;
+  return `${sections}\n\n${audienceTaxonomyPrompt}\n\n${SEO_ENHANCEMENT}\n\nROW DATA\n\nCity for this row: ${city}\nCountry for this row: ${country}\nNeighbourhoods for this row: ${neighbourhoods.join(", ")}\n\nCritical:\nReturn exactly one object for each supplied neighbourhood, in the same order. All neighbourhoods belong to ${city}, ${country}. Use only ${city} when a city name is needed. For generic names such as Downtown, Old Town, Old City, City Centre, Waterfront, Chinatown, Financial District, Market District, Arts District, CBD, or Historic Centre, include the exact city name in the output name. Choose three to five Who it's for labels per neighbourhood, using extra labels only when they are distinct and strongly supported. Conduct the editorial and final-quality checks silently before responding. The API response schema and the expanded taxonomy are authoritative over any earlier handbook instruction that requests exactly three labels or shows the array without its wrapper.`;
 }
 
 function cleanText(value, max = 140) {

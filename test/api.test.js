@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import handler from "../api/generate.js";
 import { AUDIENCE_TAXONOMY } from "../api/audience-taxonomy.js";
+import { audienceTaxonomyPrompt } from "../api/audience-taxonomy.js";
 
 function mockResponse() {
   return {
@@ -35,4 +36,5 @@ test("expanded audience taxonomy contains unique controlled labels", () => {
   assert.ok(labels.includes("Canal-side wanderers"));
   assert.ok(labels.includes("Families with teenagers"));
   assert.ok(labels.includes("Adaptive reuse fans"));
+  assert.match(audienceTaxonomyPrompt, /between three and five labels/i);
 });
