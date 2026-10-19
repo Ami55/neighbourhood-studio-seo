@@ -153,7 +153,7 @@ function App() {
 
       <main id="top">
         <section className="hero">
-          <div className="eyebrow"><Sparkles size={14} /> ToursByLocals content tool</div>
+          <div className="eyebrow"><Sparkles size={14} /> Neighbourhood content tool</div>
           <h1>Turn neighbourhood lists into<br /><em>travel-ready stories.</em></h1>
           <p>Upload a spreadsheet or add places below. Generate consistent descriptions, audience tags and top experiences in one reviewable batch.</p>
         </section>

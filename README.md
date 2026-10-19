@@ -1,6 +1,6 @@
 # Neighbourhood Studio
 
-A Vercel-ready bulk content generator for ToursByLocals neighbourhood pages. It imports Excel/CSV rows, generates structured neighbourhood content through OpenAI, supports editing, and exports the result in the existing bulk-upload shape.
+A Vercel-ready bulk content generator for neighbourhood travel pages. It imports Excel/CSV rows, generates structured neighbourhood content through OpenAI, supports editing, and exports the result in the existing bulk-upload shape.
 
 ## Local setup
 

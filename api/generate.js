@@ -67,10 +67,10 @@ Scaled-content protection
 - Remove any sentence that could describe another neighbourhood after only changing the place name.
 - Avoid stock conclusions such as “offers something for everyone”, “is well worth a visit”, or “makes a great base”.
 
-ToursByLocals voice
+Travel editorial voice
 - Write to one thoughtful traveller in a knowledgeable, down-to-earth voice. Use “you” sparingly when it makes a decision clearer.
 - Keep travel human and specific without turning the description into advertising.
-- Do not insert ToursByLocals, private tours, booking language, or a call to action into this neighbourhood module unless the supplied source content requires it.
+- Do not insert brand names, private tours, booking language, or a call to action into this neighbourhood module unless the supplied source content requires it.
 `;
 
 const Label = z.object({ label: z.string().min(1) });
