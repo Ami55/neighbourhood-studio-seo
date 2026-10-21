@@ -223,7 +223,7 @@ function App() {
 
         {activeTab === "export" && <ExportPanel count={Object.values(results).filter(Array.isArray).length} onExport={exportFile} onBack={() => setActiveTab("review")} />}
       </main>
-      <footer><span>Neighbourhood Studio</span><span>Built for clear, consistent travel content</span></footer>
+      <footer><span>Neighbourhood Studio</span><span>© 2026 Neighbourhood Studio. Developed by <strong>SEO Girl - Ami</strong>. All rights reserved.</span></footer>
       {notice && <div className="toast">{notice}</div>}
     </div>
   );
